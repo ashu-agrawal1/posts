@@ -1,9 +1,14 @@
 <template>
-  <div class="p-6">
-    <h1 class="text-3xl font-bold mb-4">Posts</h1>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <PostCard v-for="post in postStore.posts" :key="post.id" :post="post" />
-    </div>
+  <h1 class="text-3xl font-bold m-2 ml-6">Posts</h1>
+  <div class="p-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <NuxtLink
+      v-for="post in postStore.posts"
+      :key="post.id"
+      :to="`/posts/${post.id}`"
+      class="block"
+    >
+      <PostCard :post="post" />
+    </NuxtLink>
   </div>
 </template>
 
